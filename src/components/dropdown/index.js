@@ -229,7 +229,7 @@ export default class Dropdown extends PureComponent {
       event.nativeEvent.locationX -= this.rippleInsets().left;
 
       /* Start ripple directly from event */
-      this.ripple.startRipple(event);
+//       this.ripple.startRipple(event);
     }
 
     if (!itemCount) {
@@ -504,17 +504,20 @@ export default class Dropdown extends PureComponent {
       String(title);
 
     return (
-      <TextField
-        label=''
-        labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 2 })}
-
-        {...props}
-
-        value={title}
-        editable={false}
-        onChangeText={undefined}
-        renderAccessory={renderAccessory}
-      />
+        <View
+        style={{
+          flexDirection: "row",
+          backgroundColor: "white",
+          height: 40,
+          borderRadius: 6,
+          alignItems: "center",
+          padding: 10,
+          justifyContent: "space-between"
+        }}
+      >
+        <Text style={{ color: "black", fontSize: 16 }}>{title}</Text>
+        <Image source={require("./arrow_down.png")} />
+      </View>
     );
   }
 
@@ -729,7 +732,6 @@ export default class Dropdown extends PureComponent {
         <TouchableWithoutFeedback {...touchableProps}>
           <View pointerEvents='box-only'>
             {this.renderBase(props)}
-            {this.renderRipple()}
           </View>
         </TouchableWithoutFeedback>
 
