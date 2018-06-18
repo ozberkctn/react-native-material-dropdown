@@ -519,7 +519,7 @@ export default class Dropdown extends PureComponent {
           justifyContent: "space-between"
         }}
       >
-        <Text style={{ color: "black", fontSize: 16 }}>{title}</Text>
+        <Text style={{ color: "black", fontSize: this.props.labelFontSize }}>{title}</Text>
         <Image source={require("./arrow_down.png")} />
       </View>
     );
